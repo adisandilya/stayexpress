@@ -64,7 +64,7 @@ const AddRoom = () => {
       if (data.success) {
         toast.success(data.message);
         setInputs({
-          roomType: "",
+          roomType: '',
           pricePerNight: 0,
           amenities: {
             "Free WiFi": false,

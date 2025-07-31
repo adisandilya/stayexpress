@@ -23,7 +23,7 @@ export const createRoom = async (req, res) => {
             roomType,
             pricePerNight : +pricePerNight,
             amenities :JSON.parse(amenities),
-            images
+            images,
         });
         res.json({ success: true, message: "Room created successfully." });
 

@@ -257,7 +257,7 @@ const AllRooms = () => {
           <div className="px-5 pt-5 pb-7">
             <p className="font-medium text-gray-800 pb-2">Sort By</p>
             {sortOptions.map((option, index) => (
-              <RadioButton key={index} label={option} selected = {selectedSort ===option} onChange={()=> handleSortChange(option)} />
+              <RadioButton key={index} label={option} selected = {selectedSort === option} onChange={()=> handleSortChange(option)} />
             ))}
           </div>
         </div>
