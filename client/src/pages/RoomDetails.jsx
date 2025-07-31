@@ -55,25 +55,29 @@ const RoomDetails = () => {
         await checkAvailability();
       } else {
         const token = await getToken();
-        const { data } = await axios.post("/api/bookings/book", {
-          room: id,
-          checkInDate,
-          checkOutDate,
-          guests,
-          paymentMethod: "Pay at Hotel",
-        }, {
-          headers: { Authorization: `Bearer ${token}` }});
+        const { data } = await axios.post(
+          "/api/bookings/book",
+          {
+            room: id,
+            checkInDate,
+            checkOutDate,
+            guests,
+            paymentMethod: "Pay at Hotel",
+          },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         if (data.success) {
-            toast.success(data.message);
-            navigate("/my-bookings");
-            scrollTo(0, 0);
-            }else {
-            toast.error(data.message);
-             
+          toast.success(data.message);
+          navigate("/my-bookings");
+          scrollTo(0, 0);
+        } else {
+          toast.error(data.message);
         }
       }
     } catch (error) {
-        toast.error(error.message);
+      toast.error(error.message);
     }
   };
   useEffect(() => {
@@ -166,7 +170,8 @@ const RoomDetails = () => {
         </div>
 
         {/* CheckIn CheckOut Form */}
-        <form onSubmit={onSubmitHandler}
+        <form
+          onSubmit={onSubmitHandler}
           className="flex flex-col flex-wrap md:flex-row items-start md:items-center justify-between bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.15)] p-6 rounded-xl
        mx-auto mt-16 max-w-6xl"
         >
@@ -261,8 +266,13 @@ const RoomDetails = () => {
 
         <div className="flex flex-col items-start gap-4">
           <div className="flex gap-4">
-            <img
+            {/* <img
               src={room.hotel.owner.image}
+              alt="Host"
+              className="h-14 w-14 md:h-18 md:w-18 rounded-full"
+            /> */}
+            <img
+              src={room?.hotel?.owner?.image || assets.defaultProfile}
               alt="Host"
               className="h-14 w-14 md:h-18 md:w-18 rounded-full"
             />
