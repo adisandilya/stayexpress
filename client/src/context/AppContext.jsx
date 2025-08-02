@@ -59,7 +59,6 @@ export const AppProvider = ({ children }) => {
     }, [user]);
 
     useEffect(() => {
-
         fetchRooms();
     },[])
 

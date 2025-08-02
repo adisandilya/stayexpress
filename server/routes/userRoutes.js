@@ -7,7 +7,7 @@ const userRouter = express.Router();
 // registerUser
 userRouter.get('/', protect, getUserData);
 // userRouter.post('/register', registerUser);
-userRouter.post('/recentSearchedCities', protect,  storeRecentSearchedCities);
+userRouter.post('/store-recent-search', protect,  storeRecentSearchedCities);
 
 
 

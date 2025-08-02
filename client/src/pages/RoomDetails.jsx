@@ -52,7 +52,7 @@ const RoomDetails = () => {
     try {
       e.preventDefault();
       if (!isAvailable) {
-        await checkAvailability();
+        return checkAvailability();
       } else {
         const token = await getToken();
         const { data } = await axios.post(

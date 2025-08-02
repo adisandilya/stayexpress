@@ -35,29 +35,29 @@
 
 
 
-import User from '../models/User.js';
+// import User from '../models/User.js';
 
-// POST /api/users/register
-export const registerUser = async (req, res) => {
-    try {
-        const { _id, username, email, image } = req.body;
+// // POST /api/users/register
+// export const registerUser = async (req, res) => {
+//     try {
+//         const { _id, username, email, image } = req.body;
 
-        let user = await User.findById(_id);
-        if (!user) {
-            user = await User.create({
-                _id,
-                username,
-                email,
-                image,
-                recentSearchedCities: [],
-            });
-        }
+//         let user = await User.findById(_id);
+//         if (!user) {
+//             user = await User.create({
+//                 _id,
+//                 username,
+//                 email,
+//                 image,
+//                 recentSearchedCities: [],
+//             });
+//         }
 
-        res.status(201).json({ success: true, message: 'User registered or already exists', user });
-    } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
-    }
-};
+//         res.status(201).json({ success: true, message: 'User registered or already exists', user });
+//     } catch (error) {
+//         res.status(500).json({ success: false, message: error.message });
+//     }
+// };
 
 // GET /api/users
 export const getUserData = async (req, res) => {
